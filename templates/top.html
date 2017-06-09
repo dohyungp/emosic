@@ -1,0 +1,61 @@
+{% extends "recent.html" %}
+{% block title %}TOP100{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block slider %}
+    {{ super() }}
+{% endblock %}
+{% block subtitle %}TOP100{% endblock %}
+{% block intro %}사용자들에게 가장 인기있었던 TOP 100{% endblock %}
+{% block content %}
+
+    <section id="portfolio-work">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        {{ pagination.links }}
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>순서</th>
+                                <th>곡정보</th>
+                                <th>평점</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for music in musics %}
+                                <tr>
+                                    <td>{{ loop.index + (page - 1) * per_page }}</td>
+                                    <td><a href="/music/{{ music["musicid"] }}">
+                                        {{ music["title"] }}</a><br/>{{ music["author"] }}
+                                    </td>
+                                    <td align="right">
+                                        <input type="text" class="kv-fa rating-loading" value="{{ music["avg_rating"] }}" data-size="xs" title="" data-readonly="true">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {{ pagination.links }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $(document).on('ready', function () {
+            $('.kv-fa').rating({
+                theme: 'krajee-fa',
+                filledStar: '<i class="fa fa-star"></i>',
+                emptyStar: '<i class="fa fa-star-o"></i>'
+            });
+            $('.kv-uni-star').rating({
+                theme: 'krajee-uni',
+                filledStar: '&#x2605;',
+                emptyStar: '&#x2606;'
+            });
+        });
+    </script>
+{% endblock %}

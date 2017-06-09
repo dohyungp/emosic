@@ -1,0 +1,64 @@
+{% extends "recent.html" %}
+{% block title %}마이페이지{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block slider %}
+    {{ super() }}
+{% endblock %}
+{% block subtitle %}마이페이지{% endblock %}
+{% block intro %}{{ current_user.get_id() }}님의 페이지입니다.{% endblock %}
+{% block content %}
+    <section id="portfolio-work">
+        <div class="container">
+            <div class="row">
+                <div class="block">
+                    <h2>오늘의 추천곡</h2>
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+
+                        {% for item in recommend_list %}
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h5>{{ item[0] }}</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="item">
+                                        <img src="../static/img/portfolio/Music-icon.png" alt="" style="width: 234px;">
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <a href="/music/{{ item[3] }}" class="btn btn-default btn-call-to-action" >보기</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <style>
+        #owl-demo .panel{
+            margin: 10px;
+            color: #FFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+
+            $("#owl-demo").owlCarousel({
+                autoPlay: 2000, //Set AutoPlay to 3 seconds
+                items : 3,
+                itemsDesktop : [1199,3],
+                itemsDesktopSmall : [979,3]
+            });
+
+        });
+    </script>
+{% endblock %}

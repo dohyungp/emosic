@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock %} - EMOSIC</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bar-ui.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/ionicons.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/star-rating.css') }}" media="all" type="text/css"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/krajee-fa/theme.css') }}" media="all" type="text/css"/>
+
+        <!-- Js -->
+        <script src="{{ url_for('static', filename='js/queue.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/d3.min.js') }}" charset="utf-8"></script>
+        <script src="{{ url_for('static', filename='js/soundmanager2.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bar-ui.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.6.2.min.js') }}"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='js/vendor/jquery-1.10.2.min.js') }}"><\/script>')</script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/min/waypoints.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.counterup.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/star-rating.js') }}" type="text/javascript"></script>
+        <script src="{{ url_for('static', filename='js/krajee-fa/theme.js') }}" type="text/javascript"></script>
+
+        <!--Main-->
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    {% endblock %}
+</head>
+<body>
+
+
+
+<!-- Header Start -->
+<header>
+    {% block header %}
+        {% include "navbar.html" %}
+    {% endblock %}
+</header><!-- header close -->
+
+<!-- Slider Start -->
+{% block slider %}
+{% endblock %}
+<!-- Wrapper Start -->
+{% block content %}{% endblock %}
+{% include "modal.html" %}
+
+<!-- footer Start -->
+<footer>
+    {% block footer %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-manu">
+                        <ul>
+                            <li><a href="/#intro">About Us</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">How it works</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Terms</a></li>
+                        </ul>
+                    </div>
+                    <p>Copyright &copy; Design & Developed by <a href="http://www.themefisher.com">Themefisher</a>. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</footer>
+
+<script >
+    $(function() {
+        $('#login-form').bind('click', function() {
+            $.get( "/login_page")
+                .done(function(data) {
+                    $('#message-model-content').html(data);
+                    $('#user1Message').modal('show');
+                });
+        });
+    });
+    {#    // initialize with defaults#}
+    {#    $("#input-id").rating();#}
+    {##}
+    {#    // with plugin options (do not attach the CSS class "rating" to your input if using this approach)#}
+    {#    $("#input-id").rating({'size':'lg'});#}
+
+
+</script>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+
+</body>
+</html>

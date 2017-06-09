@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}최신{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block slider %}
+    <section id="global-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1>{% block subtitle %}최신{% endblock %}</h1>
+                        <p>{% block intro %}최근 발매된 100곡 목록{% endblock %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+    <section id="portfolio-work">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        {{ pagination.links }}
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>순서</th>
+                                <th>곡정보</th>
+                                <th>발매일</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for music in musics %}
+                                <tr>
+                                    <td>{{ loop.index + (page - 1) * per_page }}</td>
+                                    <td><a href="/music/{{ music["musicid"] }}">
+                                        {{ music["title"] }}</a><br/>{{ music["author"] }}
+                                    </td>
+                                    <td>{{ music["date"] }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {{ pagination.links }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

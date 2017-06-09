@@ -1,0 +1,11 @@
+media/
+metastore_db/
+spark-warehouse/
+*.log
+templates/free-license.pdf
+__pycache__/
+main.py
+dbconfig.py
+server.py
+notebook/doc_cluster.pkl
+*.csv

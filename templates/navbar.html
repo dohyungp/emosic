@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- header Nav Start -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">
+                            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="EMOSIC">
+                        </a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/">HOME</a></li>
+                            <li><a href="{{ url_for('recent') }}">최신</a></li>
+                            <li><a href="{{ url_for('top') }}">TOP100</a></li>
+                            <li><a href="{{ url_for('tagger.emotion') }}">감성 찾기</a></li>
+                            {% if current_user.is_authenticated %}
+                                <li><a href="{{ url_for('mypage') }}">{{ current_user.get_id() }}님 환영합니다.</a></li>
+                                <li><a href="{{ url_for('logout') }}" class="btn btn-default btn-call-to-action" style="font-weight: bold;">로그아웃</a></li>
+                            {% else %}
+                                <li><a href="#" class="btn btn-default btn-call-to-action" style="font-weight: bold;" id="login-form">로그인 / 회원가입</a></li>
+                            {% endif %}
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
+</div>

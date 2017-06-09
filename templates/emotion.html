@@ -1,0 +1,78 @@
+{% extends "recent.html" %}
+{% block title %}감성 찾기{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block slider %}
+    {{ super() }}
+{% endblock %}
+{% block subtitle %}감성 찾기{% endblock %}
+{% block intro %}{% endblock %}
+{% block content %}
+    {{ dropzone.include_dropzone() }}
+    <section id="portfolio-work">
+        <div class="container">
+            <div class="row">
+                <h2>음원과 유사한 분위기 곡 찾기</h2>
+                <form action="{{ url_for('tagger.upload') }}" class="dropzone needsclick dz-clickable" id="uploader" style="border: 2px dashed #0087F7;">
+                    <div class="dz-message" data-dz-message style="font-size: 22px;"><span>여기에 파일을 드래그하거나 클릭해주세요.</span></div>
+                    <div class="fallback">
+                        <input name="file" type="file"/>
+                    </div>
+                </form>
+
+                {% if mresults is not none %}
+                    <div class="col-md-6">
+                        <h2>분위기 결과</h2>
+                        <table class="table table-striped" id="mood-table">
+                            <thead>
+                            <tr>
+                                <th>유형</th>
+                                <th>확률</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for emo in mresults %}
+                                <tr><td>{{ emo['type'] }}</td>
+                                    <td>{{ emo['weight'] |round(3, 'floor') }}</td></tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endif %}
+                {% if gresults is not none %}
+                    <div class="col-md-6">
+                        <h2>장르 결과</h2>
+                        <table class="table table-striped" id="mood-table">
+                            <thead>
+                            <tr>
+                                <th>유형</th>
+                                <th>확률</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for emo in gresults %}
+                                <tr><td>{{ emo['type'] }}</td>
+                                    <td>{{ emo['weight'] |round(3, 'floor') }}</td></tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+    <script>
+        Dropzone.autoDiscover = false;
+
+        $(function() {
+            var myDropzone = new Dropzone("#uploader");
+            myDropzone.on("queuecomplete", function(file) {
+                // Called when all files in the queue finish uploading.
+                window.location = "{{ url_for('tagger.complete') }}";
+            });
+        })
+    </script>
+
+{% endblock %}

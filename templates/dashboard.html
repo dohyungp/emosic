@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/keen-dashboards.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dc.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+
+
+</head>
+<body class="application">
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="./">EMOsic 관리자 대시보드</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="row">
+
+                <!-- Time Chart -->
+                <div class="col-sm-12">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            일자별 음반 발매
+                        </div>
+                        <div class="chart-stage" id="chart1">
+                            <div id="time-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Time Chart -->
+
+                <!-- Brand -->
+                <div class="col-sm-6">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            분위기
+                        </div>
+                        <div class="chart-stage" id="chart2">
+                            <div id="mood-row-chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brand -->
+                <div class="col-sm-6">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            장르 비율
+                        </div>
+                        <div class="chart-stage" id="chart3">
+                            <div id="genre-pie-chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-2">
+            <div class="row">
+
+                <!-- Chinese Province -->
+                <div class="col-sm-12">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            음원 보유 TOP 10 작곡가
+                        </div>
+                        <div class="chart-stage" id="chart4">
+                            <div id="top10-row-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chinese Province -->
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-4">
+
+            <div class="row">
+                <!-- Map -->
+                <div class="col-sm-12">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            평균 음원 길이
+                        </div>
+                        <div class="chart-stage" id="chart5">
+                            <div id="genre-length-chart"></div>
+                            <div id="mood-length-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Map -->
+            </div>
+
+            <div class="row">
+                <!-- Number of events -->
+                <div class="col-sm-12">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            음원 수
+                        </div>
+                        <div class="chart-stage">
+                            <div id="number-records-nd"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Number of events -->
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr>
+<script src="{{ url_for('static', filename='js/vendor/jquery-1.10.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/underscore-min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/crossfilter.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dc.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/queue.js') }}"></script>
+<script src="{{ url_for('static', filename='js/keen.min.js') }}"></script>
+<script src='{{ url_for('static', filename='js/graphs.js') }}' type='text/javascript'></script>
+
+
+</body>
+</html>

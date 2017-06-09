@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}INDEX{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block slider %}
+    {% include "main_slider.html" %}
+{% endblock %}
+
+{% block content %}
+    <!-- Wrapper Start -->
+    <section id="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-12">
+                    <div class="block">
+                        <div class="section-title">
+                            <h2>About Us</h2>
+                            <p>슬픈 노래가 듣고 싶은 날과 기쁜 노래를 듣고 싶은 날이 있습니다. 그럴 때마다 MP3가 내 기분에 맞춰 노래를 들려주는 상상을 하곤 합니다.</p>
+                        </div>
+                        <p>우리는 그런 당신을 위해 음악 데이터를 분석해 당신의 기분에 맞는 음악을 들려주는 플랫폼을 서비스하고자 합니다.
+                            지금 당신의 귀를 행복하게 하는 노래가 있다면 지금 당장 서비스를 통해 그 노래와 비슷한 분위기, 장르를 찾아보세요.
+                            분명 만족할 수 있는 경험을 할 수 있을 것이라고 장담합니다.
+                        </p>
+                    </div>
+                </div><!-- .col-md-7 close -->
+                <div class="col-md-5 col-sm-12">
+                    <div class="block">
+                        <img src="../static/img/wrapper-img.png" alt="Img">
+                    </div>
+                </div><!-- .col-md-5 close -->
+            </div>
+        </div>
+    </section>
+
+    <section id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-6">
+                    <h2>WE BELIEVE IN GREAT IDEAS</h2>
+                    <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <a href="{{ url_for('recent') }}" class="btn btn-view-works">View Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Start -->
+    <section id="service">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-6 col-md-3">
+                    <div class="service-item">
+                        <i class="icon ion-coffee"></i>
+                        <h4>Branding</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="service-item">
+                        <i class="ion-compass"></i>
+                        <h4>Web Design</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="service-item">
+                        <i class="ion-image"></i>
+                        <h4>App Design</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="service-item">
+                        <i class="ion-bug"></i>
+                        <h4>Start Up</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="service-item">
+                        <i class="ion-headphone"></i>
+                        <h4>Logo Design</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="service-item">
+                        <i class="ion-leaf"></i>
+                        <h4>Development</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="service-item">
+                        <i class="ion-planet"></i>
+                        <h4>Brand Identity</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="service-item">
+                        <i class="ion-earth"></i>
+                        <h4>Brand Identity</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

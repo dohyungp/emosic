@@ -1,0 +1,26 @@
+<section id="contact-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="block">
+                    <form action="{{ url_for('login') }}" method="post">
+                        <div class="form-group">
+                            <input type="text" name="email" class="form-control" placeholder="Email" autofocus required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-default" type="submit">로그인</button>
+                        </div>
+                    </form>
+                    <form action="{{ url_for('register_page') }}">
+                        <div class="col-md-6">
+                            <button class="btn btn-signup" type="submit">회원가입</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
